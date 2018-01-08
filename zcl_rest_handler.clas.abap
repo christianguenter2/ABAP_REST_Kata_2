@@ -5,13 +5,11 @@ CLASS zcl_rest_handler DEFINITION
 
   PUBLIC SECTION.
     METHODS: if_rest_application~get_root_handler REDEFINITION.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+
 ENDCLASS.
 
 
-
-CLASS zcl_rest_handler IMPLEMENTATION.
+CLASS ZCL_REST_HANDLER IMPLEMENTATION.
 
   METHOD if_rest_application~get_root_handler.
 
@@ -19,6 +17,9 @@ CLASS zcl_rest_handler IMPLEMENTATION.
 
     lo_router->attach( iv_template      = '/hello'
                        iv_handler_class = 'ZCL_REST_RESOURCE' ).
+    lo_router->attach( iv_template      = '/document'
+                       iv_handler_class = 'ZCL_ANOTHER_REST_RESOURCE' ).
+
     ro_root_handler = lo_router.
 
   ENDMETHOD.
