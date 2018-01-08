@@ -12,7 +12,7 @@ ENDCLASS.
 
 
 
-CLASS ZCL_REST_RESOURCE_PERSON IMPLEMENTATION.
+CLASS zcl_rest_resource_person IMPLEMENTATION.
 
 
   METHOD if_rest_resource~post.
@@ -45,6 +45,8 @@ CLASS ZCL_REST_RESOURCE_PERSON IMPLEMENTATION.
     lo_response->name = ls_request-name.
     lo_response->age = ls_request-age.
     lo_response->city = ls_request-city.
+    lo_response->address = VALUE #( street = 'Teststreet'
+                                    city   = ls_request-city ).
     lo_response->telno = VALUE #(
       ( type = 'Home'   number = '1234567' )
       ( type = 'Mobile' number = '890873487' )
