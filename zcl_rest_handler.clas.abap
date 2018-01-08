@@ -9,7 +9,7 @@ CLASS zcl_rest_handler DEFINITION
 ENDCLASS.
 
 
-CLASS ZCL_REST_HANDLER IMPLEMENTATION.
+CLASS zcl_rest_handler IMPLEMENTATION.
 
   METHOD if_rest_application~get_root_handler.
 
@@ -19,6 +19,8 @@ CLASS ZCL_REST_HANDLER IMPLEMENTATION.
                        iv_handler_class = 'ZCL_REST_RESOURCE' ).
     lo_router->attach( iv_template      = '/document'
                        iv_handler_class = 'ZCL_ANOTHER_REST_RESOURCE' ).
+    lo_router->attach( iv_template      = '/person'
+                       iv_handler_class = 'ZCL_REST_RESOURCE_PERSON' ).
 
     ro_root_handler = lo_router.
 
